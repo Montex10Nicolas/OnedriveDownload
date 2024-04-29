@@ -1,7 +1,3 @@
-console.log("////////");
-
-console.log(document);
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log(request);
 
@@ -37,17 +33,25 @@ function getAllElements() {
 
   for (let i = 0; i < elements.length; i++) {
     const copy = i;
-    console.log("I'm running ", copy);
 
     setTimeout(() => {
-      console.log("I'm clicking ", copy);
       elements[copy].click();
 
       setTimeout(() => {
-        const downloadButton = document.querySelector(
+        const second = document.querySelector(
           "#appRoot > div > div.body_68bb4b5e.ready_68bb4b5e > div > div > div.core_68bb4b5e > div.topBar_68bb4b5e > div > div > div > div > div > div.ms-OverflowSet.ms-CommandBar-primaryCommand.primarySet-44 > div:nth-child(2) > button > span"
         );
-        downloadButton.click();
+
+        const third = document.querySelector(
+          "#appRoot > div > div.body_68bb4b5e.ready_68bb4b5e > div > div > div.core_68bb4b5e > div.topBar_68bb4b5e > div > div > div > div > div > div.ms-OverflowSet.ms-CommandBar-primaryCommand.primarySet-44 > div:nth-child(3) > button"
+        );
+
+        // Check which button is the download
+        if (second.innerHTML.search("Download") == -1) {
+          third.click();
+        } else {
+          second.click();
+        }
       }, 10);
     }, 1000 * i);
   }
