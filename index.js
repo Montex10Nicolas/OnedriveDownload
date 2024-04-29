@@ -9,7 +9,7 @@ button.addEventListener("click", function () {
 
     chrome.tabs.sendMessage(
       tabs[0].id,
-      { data: "hello" },
+      { data: "scrape" },
       function res(response) {
         console.log("response: ", response);
       }
