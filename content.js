@@ -53,6 +53,6 @@ function getAllElements() {
           second.click();
         }
       }, 10);
-    }, 1000 * i);
+    }, 200 * (i + 1));
   }
 }
