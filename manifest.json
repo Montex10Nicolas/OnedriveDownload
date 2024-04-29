@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "OneDrive Downloader",
+  "description": "Automate onedrive download from a shared folder",
+  "version": "1.0",
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "icon.jpeg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
